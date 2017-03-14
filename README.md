@@ -14,3 +14,7 @@
   1. python worklog.py
 # Test reports
   1. coverage report
+# Running tests
+  1. to run a test, coverage run test.py
+  2. leave second input value blank and enter options as requested
+  
