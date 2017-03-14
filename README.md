@@ -8,9 +8,9 @@
 
 
 # installation
-  1. to install peewee ( pip install peewee )
-  2. to install coverage ( pip install coverage )
+  1. pip install -r requirements.txt
 
 # run the app
-  1. source bin/activate
-  2. python worklog.py
+  1. python worklog.py
+# Test reports
+  1. coverage report
