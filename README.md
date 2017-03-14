@@ -3,8 +3,9 @@
 	task worked on, and general notes about the task into a database. 
 
 # dependencies
-  1. peewee
-  2. coverage
+  1. python3.6
+  2. peewee
+  3. coverage
 
 
 # installation
