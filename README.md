@@ -15,6 +15,6 @@
 # Test reports
   1. coverage report
 # Running tests
-  1. to run a test, coverage run test.py
+  1. to run a test, coverage run tests.py
   2. leave second input value blank and enter options as requested
   
