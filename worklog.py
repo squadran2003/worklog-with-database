@@ -6,6 +6,7 @@ from collections import OrderedDict
 from models import *
 
 
+
 def help_text():
 	"""Application documentation"""
 
@@ -30,11 +31,12 @@ def type_of_search():
 	
 	display_message("Your search options")
 	search_type = input("find by d[ate]\n"
+						"find by t[ime]\n"
 			 			"find by e[mployee]\n"
 			 			"find by s[earch term]\n"
 			 			"find by date r[ange]\n"
 						">> ".replace('\t','').lower())	
-	if search_type not in "edsr" or not search_type:
+	if search_type not in "edsrt" or not search_type:
 		clear_screen()
 		input("Did not recognise your search option! [press enter]")
 		return type_of_search()
@@ -266,7 +268,17 @@ def search_entries():
 		date_range = get_date_range()
 		clear_screen()
 		display_message("Here are your results!")
-		view_tasks('r',date_range)			
+		view_tasks('r',date_range)
+	else:
+		time  = input('Please enter time to search by {H:M} ')
+		if not time:
+			input("Please enter a time to search by {H:M} [press enter] ")
+			return search_entries()
+		else:
+			 clear_screen()
+			 display_message("Here are you results")
+			 view_tasks('t',time)
+	
 
 			
 def delete_task(task):
@@ -304,6 +316,9 @@ def view_tasks(search_type=None , search_val = None):
 	#searching by employee
 	elif search_type =='e' and search_val:
 		tasks = Entry.select().where(Entry.employee == search_val)
+	#search by time
+	elif search_type == 't' and search_val:
+		tasks = Entry.select().where(Entry.time_spent == search_val)
 	#searching by text in the task name and notes
 	elif search_type == 's' and search_val:
 		tasks = Entry.select().where(
@@ -316,6 +331,7 @@ def view_tasks(search_type=None , search_val = None):
 			)
 	else:
 		tasks = Entry.select()
+
 
 	display_tasks(tasks)
 	

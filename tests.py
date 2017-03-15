@@ -55,7 +55,7 @@ class WorklogTests(unittest.TestCase):
 		one of the desired options"""
 		
 		result  =  type_of_search()
-		self.assertIn(result, "edsr")
+		self.assertIn(result, "edsrt")
 
 
 
@@ -145,7 +145,7 @@ class WorklogTests(unittest.TestCase):
 	def test_edit_task(self):
 		"""test that a task gets updated"""
 
-		task = Entry.get(id='4')
+		task = Entry.get(id='7')
 		with support.captured_stdout() as self.stdout:
 			edit_task(task,self.employee_name_edit,self.task_name_edit,
 						self.task_time_edit, self.notes_edit)
@@ -156,7 +156,7 @@ class WorklogTests(unittest.TestCase):
 	def test_delete_task(self):
 		"""test to see if a task gets deleted successfully"""
 
-		task = Entry.get(Entry.id=='4')
+		task = Entry.get(Entry.id=='6')
 		delete_task(task)
 		user_input = self.get_input()
 		if user_input =='y':
